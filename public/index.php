@@ -2,8 +2,10 @@
 
 include_once '../vendor/autoload.php';
 
-use App\CoffeShop;
 use App\Menu;
+use App\CoffeShop;
+use App\JsonMenuOutput;
+use App\TextMenuOutput;
 
 $products = [
     ['id'=> 1, 'name'=> "Cafe colombia", "price" => '3'],
@@ -16,4 +18,4 @@ $shop = new CoffeShop();
 $shop->addProducts($products);
 
 $menu = new Menu();
-echo $menu->view($shop->getProducts());
+echo $menu->view($shop->getProducts(), new JsonMenuOutput);
