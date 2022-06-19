@@ -15,5 +15,32 @@ namespace App\Liskov;
 
 class Jueguete
 {
+    protected $areas = [];
 
+    public function insert(Figura $shape, $hole) :bool
+    {
+        return $shape->area <= $this->areas[$hole];
+    }
+}
+
+abstract class figura
+{
+    abstract public function area(int $value):float;
+}
+
+
+class Ciruclo extends figura
+{
+    public function area(int $value):float
+    {
+        return M_PI * $value ^ 2;
+    }
+}
+
+class Cuadrado extends figura
+{
+    public function area(int $value):float
+    {
+        return $value * $value;
+    }
 }
